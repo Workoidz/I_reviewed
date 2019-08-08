@@ -10,6 +10,10 @@
   </head>
 
   <body>
+
+    <% flash.each do |key,value| %>
+    <p id='<%= key %>'><%= value %></p>
+
     <%= yield %>
   </body>
 </html>
