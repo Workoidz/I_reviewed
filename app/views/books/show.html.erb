@@ -1,3 +1,44 @@
+
+<div class="book">
+
+<%= content_tag :span,"#{@book.name} (#{@book.author})", class: "book-title"%> 
+<%= link_to 'Edit', edit_book_path(@book)%>
+
+</div>
+
+<div id="notes">
+	<%= render @book.notes %>
+</div>
+
+<%= form_for([@book, @book.notes.new]) do |f| %>
+
+<div class="field">
+	<%=f.label :title %>
+	<%=f.text_field :title %>
+</div>
+
+<div class="field">
+	<%=f.label :note %>
+	<%=f.text_area :note, size: "25x5"%>
+	
+</div class="actions">
+
+	<%=f.submit "Add new Note"%>
+
+<div>
+	
+</div>
+
+<%end%>
+
+
+<%= link_to 'Back', books_path %>
+
+<!--
+<br>
+<br>
+<h1>Rails generate : </h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,3 +53,5 @@
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+-->
+
