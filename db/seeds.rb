@@ -12,9 +12,10 @@
 Book.destroy_all
 Reviewer.destroy_all
 
-Reviewer.create! [
+reviewers = Reviewer.create! [
   { name: "Joe", password: "abc123" },
-  { name: "Jim", password: "123abc" }
+  { name: "Jim", password: "123abc" },
+  { name: "ravi", password: "ravi@123"}
 ]
 
 joe = Reviewer.find_by name: "Joe"
@@ -27,6 +28,8 @@ Book.create! [
   { name: "Design Patterns in Ruby", author: "Russ Olsen", reviewer_id: joe.id },
   { name: "The Ruby Programming Language", author: "David Flanagan", reviewer_id: jim.id }
 ]
+
+100.times { |index| Book.create! name: "Book #{index}", author: "Author #{index}", reviewer_id: reviewers.sample.id}
 
 eloquent = Book.find_by name: "Eloquent Ruby"
 eloquent.notes.create! [
