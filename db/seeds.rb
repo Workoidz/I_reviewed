@@ -13,8 +13,8 @@ Book.destroy_all
 Reviewer.destroy_all
 
 Reviewer.create! [
-  { name: "Joe", password_digest: "abc123" },
-  { name: "Jim", password_digest: "123abc" }
+  { name: "Joe", password: "abc123" },
+  { name: "Jim", password: "123abc" }
 ]
 
 joe = Reviewer.find_by name: "Joe"
